@@ -8,6 +8,12 @@ helix-importer-ui
 *.bak
 .idea
 
+.local/
+test-results/
+playwright-report/
+.env
+.env.*
+
 # Ensure these files are tracked
 !CLAUDE.md
 !AGENTS.md

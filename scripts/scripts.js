@@ -10,6 +10,8 @@ import {
   loadSections,
   loadCSS,
   buildBlock,
+  readBlockConfig,
+  toClassName,
 } from './aem.js';
 
 if (window.trustedTypes && window.trustedTypes.createPolicy) {
@@ -148,6 +150,20 @@ function decorateButtons(main) {
  */
 // eslint-disable-next-line import/prefer-default-export
 export function decorateMain(main) {
+  // Local plain documents still contain authoring metadata; the remote pipeline consumes it.
+  main.querySelectorAll(':scope > div > .section-metadata').forEach((metadata) => {
+    const section = metadata.parentElement;
+    const config = readBlockConfig(metadata);
+    if (config.style) {
+      config.style.split(',').map((style) => toClassName(style.trim()))
+        .filter(Boolean).forEach((style) => section.classList.add(style));
+    }
+    if (config.anchor) section.id = toClassName(config.anchor);
+    metadata.remove();
+  });
+  main.querySelectorAll(':scope > div[data-anchor]').forEach((section) => {
+    section.id = toClassName(section.dataset.anchor);
+  });
   decorateIcons(main);
   buildAutoBlocks(main);
   decorateSections(main);
@@ -164,9 +180,17 @@ async function loadEager(doc) {
   decorateTemplateAndTheme();
   const main = doc.querySelector('main');
   if (main) {
+    main.id = 'main-content';
+    main.tabIndex = -1;
+    const skip = document.createElement('a');
+    skip.href = '#main-content';
+    skip.className = 'skip-link';
+    skip.textContent = 'Skip to content';
+    doc.body.prepend(skip);
     decorateMain(main);
     document.body.classList.add('appear');
-    await loadSection(main.querySelector('.section'), waitForFirstImage);
+    const firstSection = main.querySelector('.section');
+    if (firstSection) await loadSection(firstSection, waitForFirstImage);
   }
 
   try {

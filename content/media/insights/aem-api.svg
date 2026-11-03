@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360" fill="none">
+  <defs>
+    <linearGradient id="background" x1="40" y1="0" x2="590" y2="390" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#669BBC"/>
+      <stop offset="1" stop-color="#003049"/>
+    </linearGradient>
+    <linearGradient id="surface" x1="240" y1="80" x2="400" y2="220" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFEFB"/>
+      <stop offset="1" stop-color="#FDF0D5"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" stroke="#FFFEFB" stroke-opacity=".07"/>
+    </pattern>
+  </defs>
+  <path fill="url(#background)" d="M0 0h640v360H0z"/>
+  <path fill="url(#grid)" d="M0 0h640v360H0z"/>
+  <circle cx="320" cy="180" r="144" stroke="#FDF0D5" stroke-opacity=".15"/>
+  <circle cx="320" cy="180" r="112" stroke="#FDF0D5" stroke-opacity=".1"/>
+  <path d="M82 180h70m336 0h70M320 22v34m0 248v34" stroke="#FDF0D5" stroke-opacity=".45" stroke-width="2" stroke-dasharray="4 7"/>
+  <path d="m188 225 132-66 132 66-132 66-132-66Z" fill="#002337" stroke="#669BBC" stroke-width="2"/>
+  <path d="m188 183 132-66 132 66-132 66-132-66Z" fill="#669BBC" stroke="#B3CDDE" stroke-width="2"/>
+  <path d="m188 141 132-66 132 66-132 66-132-66Z" fill="url(#surface)"/>
+  <path d="m270 142 25-13m-25 13 25 13m75-13-25-13m25 13-25 13m-18-30-14 34" stroke="#003049" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="150" cy="180" r="7" fill="#FDF0D5"/>
+  <circle cx="490" cy="180" r="7" fill="#C1121F"/>
+  <circle cx="320" cy="304" r="5" fill="#FDF0D5"/>
+</svg>

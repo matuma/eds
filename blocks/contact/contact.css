@@ -1,0 +1,23 @@
+.contact {
+  padding: 64px 0;
+  text-align: center;
+}
+
+.contact h2 {
+  max-width: 800px;
+  margin: 0 auto 20px;
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 500;
+  line-height: 1.25;
+  text-wrap: balance;
+}
+
+.contact p {
+  color: var(--muted-color);
+  font-size: 18px;
+}
+
+.contact .button {
+  margin-top: 20px;
+  border-radius: 32px;
+}

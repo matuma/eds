@@ -1,0 +1,122 @@
+.services ul {
+  display: grid;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.services .services-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 32px;
+  border-radius: 22px;
+  background: var(--card-color);
+  box-shadow: var(--card-shadow);
+}
+
+.services p {
+  margin: 12px 0 0;
+}
+
+.services h3 {
+  margin: 48px 0 0;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.services h3 a {
+  text-decoration: none;
+}
+
+.services h3 a:hover {
+  text-decoration: underline;
+}
+
+.services .services-card > p:first-child {
+  margin: 0;
+}
+
+.services .services-feature {
+  padding: 24px;
+  background: linear-gradient(135deg, #fdf0d5, #b3cddc);
+  box-shadow: none;
+}
+
+.services .services-feature-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px;
+  border-radius: 20px;
+  background: var(--card-color);
+  box-shadow: var(--card-shadow);
+}
+
+.services .services-feature-content > p:first-child {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 0;
+  font-weight: 500;
+}
+
+.services .services-feature-content .icon {
+  width: 48px;
+  height: 48px;
+  padding: 12px;
+  border-radius: 50%;
+  background: var(--light-color);
+}
+
+.services .services-feature-content h3 {
+  margin: 0 0 40px;
+  font-size: 20px;
+  line-height: 1.35;
+}
+
+.services .services-feature-content > p:nth-last-child(2) {
+  margin-top: auto;
+  color: var(--muted-color);
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.services .services-feature-content > p:last-child {
+  margin: 0;
+  font-size: 14px;
+}
+
+@media (width >= 600px) {
+  .services .services-feature-content {
+    padding: 32px;
+  }
+
+  .services .services-feature-content h3 {
+    font-size: 24px;
+  }
+
+  .services ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .services .services-feature {
+    grid-column: 1 / -1;
+    padding: 48px;
+  }
+}
+
+@media (width >= 1024px) {
+  .services ul {
+    grid-template-columns: minmax(0, calc(50% - 12px)) repeat(2, minmax(0, 1fr));
+  }
+
+  .services .services-feature {
+    grid-column: 1;
+    grid-row: span 2;
+    padding: 64px;
+  }
+}

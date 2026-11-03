@@ -1,29 +1,46 @@
 {
-  "name": "@adobe/aem-boilerplate",
+  "name": "aem-architect-eds",
   "private": true,
   "version": "1.3.0",
-  "description": "Starter project for Adobe Helix",
+  "description": "AEM Architect learning site on Adobe Edge Delivery Services",
+  "engines": {
+    "node": ">=22.14.0"
+  },
   "scripts": {
-    "lint:js": "eslint .",
+    "dev": "aem up --no-open --no-stop-other --html-folder content --html-mount / --url https://main--eds--matuma.aem.page",
+    "dev:da": "aem up --no-open --no-stop-other --url https://main--eds--matuma.aem.page",
+    "content:check": "node tools/content.mjs check",
+    "content:login": "node tools/content.mjs login",
+    "content:export": "node tools/content.mjs export",
+    "content:upload": "node tools/content.mjs upload",
+    "content:preview": "node tools/content.mjs preview",
+    "content:publish": "node tools/content.mjs publish",
+    "test": "playwright test",
+    "test:content": "node --test test/content.test.mjs",
+    "lint:js": "eslint . --ext .js,.mjs",
     "lint:css": "stylelint \"blocks/**/*.css\" \"styles/*.css\"",
     "lint": "npm run lint:js && npm run lint:css",
     "lint:fix": "npm run lint:js -- --fix && npm run lint:css -- --fix"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/adobe/aem-boilerplate.git"
+    "url": "git+https://github.com/matuma/eds.git"
   },
   "author": "Adobe",
   "license": "Apache License 2.0",
   "bugs": {
-    "url": "https://github.com/adobe/aem-boilerplate/issues"
+    "url": "https://github.com/matuma/eds/issues"
   },
-  "homepage": "https://github.com/adobe/aem-boilerplate#readme",
+  "homepage": "https://github.com/matuma/eds#readme",
   "devDependencies": {
+    "@adobe/aem-cli": "16.22.16",
+    "@axe-core/playwright": "4.14.0",
     "@babel/eslint-parser": "7.29.9",
+    "@playwright/test": "1.64.1",
     "eslint": "8.57.1",
     "eslint-config-airbnb-base": "15.0.0",
     "eslint-plugin-import": "2.32.0",
+    "linkedom": "0.18.15",
     "stylelint": "17.16.0",
     "stylelint-config-standard": "40.0.0"
   }
